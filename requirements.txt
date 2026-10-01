@@ -1,7 +1,4 @@
-flask
+
+Flask
+requests
 gunicorn
-joblib
-pandas
-numpy
-sckit-learn
-seaborn
