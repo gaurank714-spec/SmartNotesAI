@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Notes AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Smart Notes Generator</h1>
+            <p>Convert your lectures into smart structured notes</p>
+        </div>
+
+
+        <!-- Main Form -->
+        <form action="/generate" method="POST">
+
+            <!-- Upload Lecture -->
+            <div class="card">
+                <h2>Upload Lecture</h2>
+
+                <input type="file" name="audio_file" class="file-input" accept="audio/*">
+            </div>
+
+
+            <!-- OR -->
+            <div class="or">
+                OR
+            </div>
+
+
+            <!-- Transcript -->
+            <div class="card">
+                <h2>Enter Transcript</h2>
+
+                <textarea name="transcript" placeholder="Paste your lecture transcript here..." required></textarea>
+            </div>
+
+
+            <!-- Generate Button -->
+            <button type="submit" class="generate-btn">
+                Generate Notes
+            </button>
+
+        </form>
+
+
+        <!-- Generated Notes -->
+        {% if notes %}
+
+        <div class="card">
+            <h2>Generated Notes</h2>
+
+            <pre>{{ notes }}</pre>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
